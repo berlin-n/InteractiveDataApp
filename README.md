@@ -1,1 +1,3 @@
 # InteractiveDataApp
+
+The Interactive Data Application is an application that covers most of the processes carried out by data scientists while model development or working with data. I use some of these processes, and thought of a way it could be done without code. The application has 7 main aspects seperated into tabs, which are Home, Analyze, Preprocess, Visualize, Feature Engineering, Predict and Dashboard. 
