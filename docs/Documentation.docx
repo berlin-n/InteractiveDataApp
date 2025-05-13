@@ -1,0 +1,20 @@
+DOCUMENTATION.
+I'm not really good with documentation, so I'm just going to freestyle it, and make changes as I go.
+The app is being created with Streamlit. Streamlit basically help Data Scientists deploy code, with an
+easy-to-develop frontend to interface with the ML model, or whatever data solution that has been made.
+
+Streamlit has various ways an application can be structured, one of them is by using tabs. Previously I 
+tried using a sidebar, but saw it wasn't fit for what my project will do, you can also have different 
+pages like a website would have, that will kind of seperate the codes and functionaliies to it's own page,
+It's something I would like to experiment, but since I have only a little experience in using Streamlit, 
+I'll leave that for later.
+
+I used 7 tabs (tab0, tab1, tab2, tab3. tab4, tab5, tab6), each tab representing a functionality provided 
+by the application.
+The first functionality is the "Home" tab:
+Here lies a brief introduction to the application, and a dialogue or widget, that allows users to upload 
+their desired file, before previewing it. It's the first Tab you see when you visit the site, and you can't 
+work with any of the other features without uploading a CSV in that Tab.
+
+The Second functionality is the "Analyze tab":
+

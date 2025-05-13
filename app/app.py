@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.set_page_config("Interactive Data App")
@@ -24,26 +25,40 @@ with tab0:
 
     st.markdown("---")
     uploaded_file = st.file_uploader("Upload your CSV file")
-    if uploaded_file:
-        df = pd.read_csv(uploaded_file)
-        st.dataframe(df.head())
-    else:
-        st.info("Awaiting file upload...")
+    df = pd.read_csv(uploaded_file)
+    st.dataframe(df.head())
 
 with tab1:
-    st.subheader("Analyze your data")
+    st.subheader("Analysis")
+    st.write("Number of Columns", len(df.columns))
+    st.write("Number of rows", len(df))
+    st.write("Columns:", df.columns.to_list())
+    st.write(df.describe())
+    
 
 with tab2:
-    st.subheader("Visualize your data")
+    st.subheader("Visualization")
 
 with tab3:
-    st.subheader("Preprocess your data")
+    st.subheader("Preprocessing")
+    cols = st.multiselect("Select columns to be dropped", df.columns)
+    if st.button("Drop Columns"): # Need to add this button to trigger the column dropping functionality, or else... it won't work 
+        df.drop(columns=cols)
+        st.write(df.head())
+
 
 with tab4:
-    st.subheader("Create features")
+    st.subheader("Feature Engineering")
+    dependentVariable = st.selectbox("Select the column for your y-variable", df.columns)
+    columns = st.multiselect("Select the columns for your X-variable", df.columns)
+    y = df[dependentVariable]
+    x = df[columns]
 
 with tab5:
+    models = ["Linear Regression", "Logistic Regression", "Multi Regression", "Decision Trees"]
     st.subheader("Make predictions")
+    st.selectbox("Select a Model to use", models)
+    
 
 with tab6:
     st.subheader("Generate a dashboard")
