@@ -11,10 +11,67 @@ I'll leave that for later.
 
 I used 7 tabs (tab0, tab1, tab2, tab3. tab4, tab5, tab6), each tab representing a functionality provided 
 by the application.
-The first functionality is the "Home" tab:
-Here lies a brief introduction to the application, and a dialogue or widget, that allows users to upload 
+------------------------------------------------------------------------------------------------------------------|
+THE MVP
+The First functionality is the "Home" tab:
+- Here lies a brief introduction to the application, and a dialogue or widget, that allows users to upload 
 their desired file, before previewing it. It's the first Tab you see when you visit the site, and you can't 
 work with any of the other features without uploading a CSV in that Tab.
+- For future updates, the only one I can think of so far will be to generate mock up data to test the system
+in case the user wants to play with the software and doesn't have data to do so, they can be able to choose
+the category of data they want to use (maybe Sales for time series, Object Classification, Price prediction)
+- And there is also a possible version that will have the home tab not only preview the data, but spot issues
+with it.
 
-The Second functionality is the "Analyze tab":
 
+The Second functionality is the "Analyze" tab:
+- The Analysis tab, should have pandas related functions for sorting, groupby, filtering. 
+
+
+The Third functionality is the "Visualize" tab:
+- This will just have like a histogram, bar chart, pie chart, line chart, all those types of visualization.
+
+
+The Fourth functionality is the "Preprocess" tab:
+- Basic Cleaning, removing rows, dropping columns, converting data types, all that.
+
+
+The Fifth functionality is "Feature Engineering":
+- It will split the data into X and Y, and train_test_split
+
+
+The Sixth functionality is "Modelling":
+ - Of course you can use the prepared data to create a model, monitor errors, regularization for overfitting
+ and underfitting.
+ - After generating your X_train and y_train from the preprocesing tab, for the flow of processes, the first
+ step will be to select a model to use on the data(with preset parameters), then we test the dataset, if need
+ be to adjust model parameters, the user should have the ability to change that, then also change the type of
+ error metric they use, then regularization, the user should also be able to apply regularization if they
+ suspect overfitting or underfitting.
+ - In future updates, there will be auto detection for data problem space, that means the app will know what 
+ model to use on the data, as well as preset parameters, and the error metrics.
+ - You can also just generate a model without doing anything, there will be a functionality to just generate 
+ a model based on the data, and it should be accurate to a certain.
+--------------------------------------------------------------------------------------------------------------
+So currently,
+- The Home Tab does what it's supposed to do, only thing is if I have no file imported, it throws an error
+- The Analyze Tab is due for some minor improvements, for the MVP at least
+- The Visualize Tab is hasn't been worked on at all, but the task related to it aren't hectic
+- The Preprocess Tab could use some more work.
+- The Feature Engineering Tab will stay this way for now.
+- The Modelling Tab will have one update, that is to actually train and export an ML Model.
+- The Dashboard will definetely come up, I actually need to find out how to put in dashboards into st.
+
+For now, there is no pipeline that connects the tabs together so the data is unchanged after undergoing all
+the processes from each tab, will be the last thing in the first iteration.
+--------------------------------------------------------------------------------------------------------------
+ERRORS AND FIXES
+1. I'll call this error E1 or situation E1, take this for instance... the way Streamlit works is the code runs
+from the first line to the last line of the code with the same data, and this project doesn't use multiple,
+different pages for each tab, it uses just one page, understand that before the data gets to the modelling tab, 
+it's meant to go through the others, like preprocessing and feature engineering, but the data is being read 
+immediately from the home tab straight to the modelling tab, and can cause errors, becasue it's supposed to get 
+preprocessed first. To explain this better, the main first error I got is before any file is being uploaded I 
+get an error. The error is because in my code, if the data is uploaded or not, the code still runs, so the codes 
+run and will look for data, they won't find the data, and then it throws an error. To fix this... I want to
+use "if file_uploaded", dyg?. Let's sha see it in the next commit.
