@@ -74,4 +74,8 @@ immediately from the home tab straight to the modelling tab, and can cause error
 preprocessed first. To explain this better, the main first error I got is before any file is being uploaded I 
 get an error. The error is because in my code, if the data is uploaded or not, the code still runs, so the codes 
 run and will look for data, they won't find the data, and then it throws an error. To fix this... I want to
-use "if file_uploaded", dyg?. Let's sha see it in the next commit.
+use "if file_uploaded", dyg?. Let's sha see it in the next commit. I implemented the "if file_uploaded" logic to
+handle proper file imports on all functionaliies, I then went ahead to change the layout this time using pages
+instead of tabs, and added a pipeline using the browser session to persist the data across the pages.
+
+2. 
